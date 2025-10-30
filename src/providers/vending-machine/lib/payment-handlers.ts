@@ -34,3 +34,14 @@ export const handleGoToProductSelection = (state: VendingMachineState): VendingM
     },
   };
 };
+
+export const handleAddMoreCash = (state: VendingMachineState): VendingMachineState => {
+  return {
+    ...state,
+    currentTransaction: {
+      ...state.currentTransaction,
+      status: '현금_투입_중',
+      error: null,
+    },
+  };
+};

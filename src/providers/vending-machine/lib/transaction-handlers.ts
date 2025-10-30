@@ -11,3 +11,10 @@ export const handleCancelTransaction = (state: VendingMachineState): VendingMach
     },
   };
 };
+
+export const handleCompleteTransaction = (state: VendingMachineState): VendingMachineState => {
+  return {
+    ...state,
+    currentTransaction: createInitialTransaction(),
+  };
+};

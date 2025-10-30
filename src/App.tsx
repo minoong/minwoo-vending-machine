@@ -4,6 +4,7 @@ import { Header } from '~/shared/ui/header';
 import { VendingMachineProvider } from '~/providers/vending-machine/ui/vending-machine-provider';
 import { PaymentSelectionPage } from '~/pages/payment-selection-page';
 import { CashInsertPage } from '~/pages/cash-insert-page';
+import { ProductSelectionPage } from '~/pages/product-selection-page';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
               <Routes>
                 <Route index element={<PaymentSelectionPage />} />
                 <Route path="/cash/insert" element={<CashInsertPage />} />
+                <Route path="/product" element={<ProductSelectionPage />} />
               </Routes>
             </div>
           </div>
