@@ -14,3 +14,13 @@ export const handleSelectPaymentMethod = (
     },
   };
 };
+
+export const handleInsertCash = (state: VendingMachineState, action: Extract<VendingMachineAction, { type: '현금_투입' }>): VendingMachineState => {
+  return {
+    ...state,
+    currentTransaction: {
+      ...state.currentTransaction,
+      insertedAmount: state.currentTransaction.insertedAmount + action.payload,
+    },
+  };
+};
