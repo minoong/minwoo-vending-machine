@@ -5,6 +5,8 @@ import { VendingMachineProvider } from '~/providers/vending-machine/ui/vending-m
 import { PaymentSelectionPage } from '~/pages/payment-selection-page';
 import { CashInsertPage } from '~/pages/cash-insert-page';
 import { ProductSelectionPage } from '~/pages/product-selection-page';
+import { ProcessingPage } from '~/pages/processing-page';
+import { CompletionPage } from '~/pages/completion-page';
 
 function App() {
   return (
@@ -19,6 +21,10 @@ function App() {
                 <Route index element={<PaymentSelectionPage />} />
                 <Route path="/cash/insert" element={<CashInsertPage />} />
                 <Route path="/product" element={<ProductSelectionPage />} />
+                <Route path="/processing" element={<ProcessingPage />} />
+                <Route path="/dispensing" element={<ProcessingPage />} />
+                <Route path="/returning" element={<ProcessingPage />} />
+                <Route path="/completed" element={<CompletionPage />} />
               </Routes>
             </div>
           </div>

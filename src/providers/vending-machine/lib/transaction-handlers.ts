@@ -11,8 +11,7 @@ export const handleCompletePurchase = (state: VendingMachineState): VendingMachi
 
     const updatedProducts = state.products.map((product) => (product.id === product.id ? { ...product, stock: product.stock - 1 } : product));
 
-    const change =
-      state.currentTransaction.paymentMethod === '신용카드' ? state.currentTransaction.insertedAmount - state.currentTransaction.purchaseAmount : 0;
+    const change = state.currentTransaction.paymentMethod === '현금' ? state.currentTransaction.insertedAmount - state.currentTransaction.purchaseAmount : 0;
 
     return {
       ...state,
@@ -32,7 +31,7 @@ export const handleCompletePurchase = (state: VendingMachineState): VendingMachi
     );
   }
 
-  const change = state.currentTransaction.paymentMethod === '신용카드' ? state.currentTransaction.insertedAmount - state.currentTransaction.purchaseAmount : 0;
+  const change = state.currentTransaction.paymentMethod === '현금' ? state.currentTransaction.insertedAmount - state.currentTransaction.purchaseAmount : 0;
 
   return {
     ...state,
@@ -50,7 +49,7 @@ export const handleDispenseProduct = (state: VendingMachineState): VendingMachin
     ...state,
     currentTransaction: {
       ...state.currentTransaction,
-      status: state.currentTransaction.paymentMethod === '신용카드' ? '거스름돈_반환_중' : '거래_완료',
+      status: state.currentTransaction.paymentMethod === '현금' ? '거스름돈_반환_중' : '거래_완료',
     },
   };
 };

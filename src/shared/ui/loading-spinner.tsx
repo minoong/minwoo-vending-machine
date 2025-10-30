@@ -11,7 +11,7 @@ export function LoadingSpinnerComponent(props: Props) {
     <>
       <div className="fixed inset-0 z-51 flex items-center justify-center bg-black opacity-50" />
       <div className="fixed top-1/2 left-1/2 z-52 -translate-x-1/2 -translate-y-1/2 transform rounded-lg bg-white p-8 text-center shadow-xl">
-        <div role="status">
+        <div role="status" className="flex justify-center">
           <svg
             aria-hidden="true"
             className="h-10 w-10 animate-spin fill-blue-600 text-gray-200"
