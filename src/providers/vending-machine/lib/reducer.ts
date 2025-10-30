@@ -1,4 +1,4 @@
-import type { VendingMachineAction, VendingMachineState } from '~/providers/reducers/types';
+import type { VendingMachineAction, VendingMachineState } from '~/providers/vending-machine/types';
 import { INITIAL_PRODUCTS } from '~/shared/lib/products';
 import { createInitialTransaction } from '~/shared/lib/transaction';
 

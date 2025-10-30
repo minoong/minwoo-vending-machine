@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import type { VendingMachineAction, VendingMachineState } from '~/providers/reducers/types';
+import type { VendingMachineAction, VendingMachineState } from '~/providers/vending-machine/types';
 
 export const VendingMachineContext = createContext<
   | {
