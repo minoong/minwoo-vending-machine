@@ -1,4 +1,4 @@
-import type { Product, Transaction, PaymentMethod, CashDenomination, ProductType, ErrorType } from '../../../shared/types';
+import type { CashDenomination, ErrorType, PaymentMethod, Product, ProductType, Transaction } from '~/shared/types';
 
 export interface VendingMachineState {
   products: Product[];
