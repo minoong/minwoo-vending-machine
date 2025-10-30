@@ -45,3 +45,35 @@ export const handleAddMoreCash = (state: VendingMachineState): VendingMachineSta
     },
   };
 };
+
+export const handleProcessCardPayment = (state: VendingMachineState): VendingMachineState => {
+  return {
+    ...state,
+    currentTransaction: {
+      ...state.currentTransaction,
+      status: '신용카드_처리_중',
+    },
+  };
+};
+
+export const handleCardPaymentSuccess = (state: VendingMachineState): VendingMachineState => {
+  return {
+    ...state,
+    currentTransaction: {
+      ...state.currentTransaction,
+      status: '상품_출고_중',
+      error: null,
+    },
+  };
+};
+
+export const handleCardPaymentFailed = (state: VendingMachineState): VendingMachineState => {
+  return {
+    ...state,
+    currentTransaction: {
+      ...state.currentTransaction,
+      status: '상품_선택_중',
+      error: '신용카드_인증_실패',
+    },
+  };
+};
