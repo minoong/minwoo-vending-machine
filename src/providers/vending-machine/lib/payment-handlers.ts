@@ -24,3 +24,13 @@ export const handleInsertCash = (state: VendingMachineState, action: Extract<Ven
     },
   };
 };
+
+export const handleGoToProductSelection = (state: VendingMachineState): VendingMachineState => {
+  return {
+    ...state,
+    currentTransaction: {
+      ...state.currentTransaction,
+      status: '상품_선택_중',
+    },
+  };
+};

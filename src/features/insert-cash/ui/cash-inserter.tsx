@@ -5,11 +5,15 @@ import type { CashDenomination } from '~/shared/types';
 
 interface CashInserterProps {
   currentBalance: number;
+  minPrice: number;
+  canSelectProduct: boolean;
   onInsert: (amount: CashDenomination) => void;
+  onGoToProductSelection: () => void;
+  onCancel: () => void;
 }
 
 function CashInserterComponent(props: CashInserterProps) {
-  const { currentBalance, onInsert } = props;
+  const { currentBalance, minPrice, canSelectProduct, onInsert, onGoToProductSelection, onCancel } = props;
 
   return (
     <div className="rounded-lg bg-white p-3 shadow-lg">
@@ -26,12 +30,29 @@ function CashInserterComponent(props: CashInserterProps) {
         {CASH_DENOMINATIONS.map((denomination) => (
           <button
             key={denomination}
+            type="button"
             onClick={() => onInsert(denomination)}
             className={`rounded-lg bg-amber-500 px-3 py-4 font-bold text-white transition duration-75 hover:bg-amber-600 active:scale-95 active:shadow-lg active:shadow-amber-700 ${denomination === 10000 ? 'col-span-2' : 'col-span-1'}`}
           >
             {formatCurrencyWithKRW(denomination)}
           </button>
         ))}
+      </div>
+
+      <div className="space-y-2 border-t-2 border-gray-200 pt-6">
+        <button
+          type="button"
+          onClick={onGoToProductSelection}
+          disabled={!canSelectProduct}
+          className={`w-full rounded-lg px-3 py-4 font-bold transition-colors duration-200 ${
+            canSelectProduct ? 'bg-blue-500 text-white hover:bg-blue-600' : 'cursor-not-allowed bg-gray-300 text-gray-500'
+          }`}
+        >
+          {canSelectProduct ? '상품 선택' : `최소 ${formatCurrencyWithKRW(minPrice)} 필요`}
+        </button>
+        <button onClick={onCancel} className="w-full rounded-lg bg-red-500 px-3 py-4 font-bold text-white transition-colors duration-200 hover:bg-red-600">
+          현금 반환
+        </button>
       </div>
     </div>
   );
